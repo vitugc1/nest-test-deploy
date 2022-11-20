@@ -4,8 +4,8 @@ import {
   Delete,
   Get,
   Param,
+  Patch,
   Post,
-  Put,
 } from '@nestjs/common';
 import { BookDTO } from './book.dto';
 import { BookService } from './book.service';
@@ -29,7 +29,7 @@ export class BookController {
     return this.bookService.findById(id);
   }
 
-  @Put(':id')
+  @Patch(':id')
   async update(@Param('id') id: string, @Body() data: BookDTO) {
     return this.bookService.update(id, data);
   }
